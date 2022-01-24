@@ -33,11 +33,9 @@ module.exports = {
 
         if (
           node.children.length > 0 ||
-          attributes.some(
-            (attribute) => attribute.name.name === 'dangerouslySetInnerHTML'
-          )
+          attributes.has('dangerouslySetInnerHTML')
         ) {
-          if (!attributes.some((attribute) => attribute.name.name === 'id')) {
+          if (!attributes.has('id')) {
             context.report({
               node,
               message:
