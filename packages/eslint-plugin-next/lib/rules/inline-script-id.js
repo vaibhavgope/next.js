@@ -27,7 +27,9 @@ module.exports = {
           return
         }
 
-        const attributes = node.openingElement.attributes
+        const attributes = node.openingElement.attributes.filter(
+          (attribute) => attribute.type === 'JSXAttribute'
+        )
 
         if (
           node.children.length > 0 ||
